@@ -27,9 +27,9 @@
     <div class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center align-items-center" >
+        <div class="row justify-content-center align-items-center" style="height:80vh">
 
-            <div class="col-xl-6 col-lg-6 col-md-9">
+            <div class=" col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
