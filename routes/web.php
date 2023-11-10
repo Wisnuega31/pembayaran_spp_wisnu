@@ -14,9 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
-});
-
-Route::prefix('petugas')->group(function () {
-    
+    return view('layout');
 });
