@@ -14,6 +14,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="\assets\css\bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -34,7 +35,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="bi bi-wallet"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
@@ -44,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html"><span>Dashboard</span></a>
+                <a class="nav-link" href="{{url('dashboard')}}"><span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -63,10 +64,10 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Siswa</a>
-                        <a class="collapse-item" href="cards.html">Petugas</a>
-                        <a class="collapse-item" href="cards.html">Kelas</a>
-                        <a class="collapse-item" href="cards.html">Spp</a>
+                        <a class="collapse-item" href="{{url('siswa')}}">Siswa</a>
+                        <a class="collapse-item" href="{{url('petugas')}}">Petugas</a>
+                        <a class="collapse-item" href="{{url('kelas')}}">Kelas</a>
+                        <a class="collapse-item" href="{{url('spp')}}">Spp</a>
                     </div>
                 </div>
             </li>
@@ -132,7 +133,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{url('logout')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -199,6 +200,7 @@
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    
     <!-- Custom scripts for all pages-->
     <script src="/assets/js/sb-admin-2.min.js"></script>
 

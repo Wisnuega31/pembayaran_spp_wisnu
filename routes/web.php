@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+Route::get('/',[LoginController::class,'login']);
+Route::post('/',[LoginController::class,'ceklogin']);
+
+Route::get('dashboard',[PembayaranController::class,'index']);
+Route::get('siswa',[PembayaranController::class,'siswa']);
+Route::get('petugas',[PembayaranController::class,'petugas']);
+Route::get('kelas',[PembayaranController::class,'kelas']);
+Route::get('spp',[PembayaranController::class,'spp']);

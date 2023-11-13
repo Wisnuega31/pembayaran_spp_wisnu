@@ -34,28 +34,55 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col">
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Siswa</button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab"
+                                    aria-controls="nav-profile" aria-selected="false">Petugas</button>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                aria-labelledby="nav-home-tab" tabindex="0">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
                                     </div>
-                                    <form class="user">
+
+                                    <form action="" method="POST" class="user my-4">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Masukan NISN...">
+                                        </div>
+                                        <a href="index.html" class="btn btn-primary btn-user btn-block my-4">
+                                            Login
+                                        </a>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab" tabindex="0">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
+                                    </div>
+
+                                    <form action="" method="POST" class="user my-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="username"
+                                                placeholder="Masukan Username...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
+                                                name="password" placeholder="Masukan Password...">
                                         </div>
                                         <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
@@ -65,6 +92,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        {{-- <div class="row">
+                            <div class="col">
+                                
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
 
