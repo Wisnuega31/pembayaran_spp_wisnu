@@ -7,18 +7,18 @@ use Illuminate\Http\Request;
 class PembayaranController extends Controller
 {
     public function index(){
-        return view("dashboardPetugas");
+        return view("spp.dashboardPetugas");
     }
     public function siswa(){
-        return view("crud.siswa");
+        return view("spp.crud.siswa");
     }
     public function petugas(){
-        return view("crud.petugas");
+        return view("spp.crud.petugas");
     }
     public function kelas(){
-        return view("crud.kelas");
+        return view("spp.crud.kelas");
     }
     public function spp(){
-        return view("crud.spp");
+        return view("spp.crud.spp");
     }
 }

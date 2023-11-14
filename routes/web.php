@@ -19,7 +19,7 @@ Route::get('/',[LoginController::class,'login']);
 Route::post('/',[LoginController::class,'ceklogin']);
 
 Route::get('dashboard',[PembayaranController::class,'index']);
-Route::get('siswa',[PembayaranController::class,'siswa']);
-Route::get('petugas',[PembayaranController::class,'petugas']);
-Route::get('kelas',[PembayaranController::class,'kelas']);
-Route::get('spp',[PembayaranController::class,'spp']);
+Route::get('siswa',[PembayaranController::class,'siswa']);//CRUD siswa
+Route::get('petugas',[PembayaranController::class,'petugas']);//CRUD peugas
+Route::get('kelas',[PembayaranController::class,'kelas']);//CRUD kelas
+Route::get('spp',[PembayaranController::class,'spp']);//CRUD spp
