@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[LoginController::class,'login']);
-Route::post('/',[LoginController::class,'ceklogin']);
+Route::get('login',[LoginController::class,'login']);
+Route::post('loginSiswa',[LoginController::class,'cekSiswa']);
+Route::post('loginPetugas',[LoginController::class,'cekPetugas']);
+Route::get('logout',[LoginController::class,'logout']);
 
-Route::get('dashboard',[PembayaranController::class,'index']);
+Route::get('/',[PembayaranController::class,'index']);
 Route::get('siswa',[PembayaranController::class,'siswa']);//CRUD siswa
 Route::get('petugas',[PembayaranController::class,'petugas']);//CRUD peugas
 Route::get('kelas',[PembayaranController::class,'kelas']);//CRUD kelas

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Login Pembayaran Spp</title>
 
     <!-- Custom fonts for this template-->
     <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -54,15 +54,13 @@
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
                                     </div>
 
-                                    <form action="" method="POST" class="user my-4">
+                                    <form action="{{ url('loginSiswa') }}" method="POST" class="user my-4">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <input type="email" class="form-control form-control-user" name="nisn"
                                                 placeholder="Masukan NISN...">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block my-4">
-                                            Login
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block my-4">Login</button>
                                     </form>
 
                                 </div>
@@ -75,7 +73,8 @@
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
                                     </div>
 
-                                    <form action="" method="POST" class="user my-4">
+                                    <form action="{{ url('loginPetugas') }}" method="POST" class="user my-4">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="username"
                                                 placeholder="Masukan Username...">
@@ -84,20 +83,13 @@
                                             <input type="password" class="form-control form-control-user"
                                                 name="password" placeholder="Masukan Password...">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
 
                                 </div>
                             </div>
                         </div>
 
-                        {{-- <div class="row">
-                            <div class="col">
-                                
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
 
