@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Petugas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -12,9 +13,18 @@ class LoginController extends Controller
     }
     public function cekPetugas(Request $request){
         $data = new Petugas();
-        $data = $data->where("username",$request->username)->where('password',$request->password)->first();
-        if($data->exists()){
-            session(['dataPetugas'=>$data]);
+        $petugas = $data->where("username",$request->username)->where('password',$request->password);
+        if($petugas->exists()){
+            session(['dataPetugas'=>$petugas->first()]);
+            return redirect('/');
+        }
+        return back()->with('error','Username dan Password tidak terdaftar');
+    }
+    public function cekSiswa(Request $request){
+        $data = new Siswa();
+        $siswa = $data->where("nisn",$request->nisn);
+        if($siswa->exists()){
+            session(['dataSiswa'=>$siswa->first()]);
             return redirect('/');
         }
         return back()->with('error','Username dan Password tidak terdaftar');

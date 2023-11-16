@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="\assets\vendor\bootstrap-icons\bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="\assets\vendor\bootstrap\css\bootstrap.min.css">
 
 </head>
 
@@ -57,10 +59,11 @@
                                     <form action="{{ url('loginSiswa') }}" method="POST" class="user my-4">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" name="nisn"
+                                            <input type="number" class="form-control form-control-user" name="nisn"
                                                 placeholder="Masukan NISN...">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block my-4">Login</button>
+                                        <button type="submit"
+                                            class="btn btn-primary btn-user btn-block my-4">Login</button>
                                     </form>
 
                                 </div>
@@ -71,6 +74,12 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
+                                    </div>
+
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
                                     </div>
 
                                     <form action="{{ url('loginPetugas') }}" method="POST" class="user my-4">
