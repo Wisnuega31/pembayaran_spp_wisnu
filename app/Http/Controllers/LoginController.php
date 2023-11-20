@@ -18,7 +18,7 @@ class LoginController extends Controller
             session(['dataPetugas'=>$petugas->first()]);
             return redirect('/');
         }
-        return back()->with('error','Username dan Password tidak terdaftar');
+        return back()->with('pesan','Username dan Password tidak terdaftar');
     }
     public function cekSiswa(Request $request){
         $data = new Siswa();
@@ -27,7 +27,7 @@ class LoginController extends Controller
             session(['dataSiswa'=>$siswa->first()]);
             return redirect('/');
         }
-        return back()->with('error','Username dan Password tidak terdaftar');
+        return back()->with('pesan','NISN tidak terdaftar');
     }
     public function logout(){
         session()->flush();

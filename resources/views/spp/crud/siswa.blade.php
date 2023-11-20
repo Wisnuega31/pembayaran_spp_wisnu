@@ -94,7 +94,7 @@
                             <td>{{$item->kelas->nama_kelas}} {{$item->kelas->kompetensi_keahlian}}</td>
                             <td>{{$item->alamat}}</td>
                             <td>{{$item->no_telp}}</td>
-                            <td>{{$item->id_spp}}</td>
+                            <td>{{$item->spp->nominal}}</td>
 
                             <td> <a href="{{url('siswa/edit/'.$item->nisn)}}" class="btn btn-warning btn-circle btn-sm">
                                     <i class="bi bi-pencil-fill"></i>

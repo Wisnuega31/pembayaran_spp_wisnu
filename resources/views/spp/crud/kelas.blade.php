@@ -24,16 +24,22 @@
                             <form action="{{ url('kelas') }}" method="post">
                                 @csrf
                                 <div class="modal-body">
-                                    <select class="form-select my-2" name="nama_kelas">
-                                        <option value="X">X</option>
-                                        <option value="XI">XI</option>
-                                        <option value="XII">XII</option>
-                                    </select>
-                                    <select class="form-select my-2" name="kompetensi_keahlian">
-                                        <option value="RPL">RPL</option>
-                                        <option value="TKRO">TKRO</option>
-                                        <option value="TP">TP</option>
-                                    </select>
+                                    <div class="mb-3">
+                                        <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                                        <select class="form-select my-2" name="nama_kelas">
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="kompetensi_keahlian" class="form-label">Kompetensi Keahlian</label>
+                                        <select class="form-select my-2" name="kompetensi_keahlian">
+                                            <option value="RPL">RPL</option>
+                                            <option value="TKRO">TKRO</option>
+                                            <option value="TP">TP</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

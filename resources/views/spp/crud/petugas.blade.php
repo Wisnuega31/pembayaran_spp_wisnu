@@ -36,10 +36,13 @@
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" name="password" id="password">
                                     </div>
-                                    <select class="form-select my-2" name="level">
-                                        <option value="admin">Admin</option>
-                                        <option value="petugas">Petugas</option>
-                                    </select>
+                                    <div class="mb-3">
+                                        <label for="level" class="form-label">Level</label>
+                                        <select class="form-select my-2" name="level">
+                                            <option value="admin">Admin</option>
+                                            <option value="petugas">Petugas</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

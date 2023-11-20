@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('dashboard')}}"><span>Dashboard</span></a>
+                <a class="nav-link" href="{{url('/')}}"><span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -74,15 +74,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html"><span>Transaksi pembayaran</span></a>
+                <a class="nav-link" href="{{url('transaksi')}}"><span>Transaksi pembayaran</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html"><span>History Pembayaran</span></a>
+                <a class="nav-link" href="{{url('riwayat')}}"><span>History Pembayaran</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html"><span>Laporan</span></a>
+                <a class="nav-link" href="{{url('laporan')}}"><span>Laporan</span></a>
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -191,7 +191,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{url('logout')}}">Logout</a>
                 </div>
             </div>
         </div>

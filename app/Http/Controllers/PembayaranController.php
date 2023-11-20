@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Pembayaran;
 use App\Models\Petugas;
 use App\Models\Siswa;
 use App\Models\Spp;
@@ -11,9 +12,12 @@ use Illuminate\Http\Request;
 class PembayaranController extends Controller
 {
     public function index(){
-        return view("spp.dashboardPetugas");
-    }
-
+        if (session('dataPetugas')) {
+            return view("spp.dashboardPetugas");
+        }elseif ( session('dataSiswa')) {
+            return view("spp.dashboardSiswa");
+        }
+    }  
 
     public function siswa(){
         $data = new Siswa();
@@ -120,5 +124,23 @@ class PembayaranController extends Controller
         $data = new Spp();
         $data->find($id)->delete();
         return redirect('spp')->with('pesan','data berhasil di ubah');
+    }
+
+    public function transaksi(){
+        $data = new Spp();
+        return view('spp.transaksi',['dataSpp' => $data->all()]);
+    }
+    public function cekTransaksi(Request $request){
+        $data = new Pembayaran();
+        $data = $data->create([
+            'id_petugas' => session('dataPetugas')->id_petugas,
+            'nisn' => $request->nisn,
+            'tgl_bayar' => date('Y/m/d'),
+            'bulan_dibayar' => $request->bulan_dibayar,
+            'tahun_dibayar' => $request->tahun_dibayar,
+            'id_spp' => $request->id_spp,
+            'jumlah_bayar' => $request->jumlah_bayar
+        ]);
+        return back()->with('pesan','Transaksi berhasil ditambahkan');
     }
 }

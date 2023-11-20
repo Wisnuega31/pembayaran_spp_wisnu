@@ -51,6 +51,14 @@
 
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                 aria-labelledby="nav-home-tab" tabindex="0">
+                                @if (session('pesan'))
+                                    <div class="alert alert-warning alert-dismissible fade show mx-4 mt-2 mb-0"
+                                        role="alert">
+                                        {{session('pesan')}}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
@@ -74,12 +82,6 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali</h1>
-                                    </div>
-
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
                                     </div>
 
                                     <form action="{{ url('loginPetugas') }}" method="POST" class="user my-4">

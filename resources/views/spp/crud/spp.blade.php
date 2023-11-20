@@ -24,15 +24,14 @@
                             <form action="{{ url('spp') }}" method="post">
                                 @csrf
                                 <div class="modal-body">
-                                    <select class="form-select my-2" name="tahun">
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                    </select>
+                                    <div class="mb-3">
+                                        <label for="tahun" class="form-label">Tahun</label>
+                                        <select class="form-select my-2" name="tahun">
+                                            @for ($i = date('Y')-10; $i <= date('Y'); $i++)
+                                            <option value="{{$i}}">{{$i}}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="nominal" class="form-label">Nominal</label>
                                         <input type="number" class="form-control" name="nominal" id="nominal">

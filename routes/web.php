@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Middleware\ceklogin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::post('loginSiswa',[LoginController::class,'cekSiswa']);
 Route::post('loginPetugas',[LoginController::class,'cekPetugas']);
 Route::get('logout',[LoginController::class,'logout']);
 
-Route::get('/',[PembayaranController::class,'index']);
+Route::get('/',[PembayaranController::class,'index'])->middleware([ceklogin::class]);
 
 Route::prefix('siswa')->group(function () {
     Route::get('/',[PembayaranController::class,'siswa']);//CRUD siswa
@@ -50,3 +51,6 @@ Route::prefix('spp')->group(function () {
     Route::post('/edit/{id}',[PembayaranController::class,'editSpp']);//CRUD Spp
     Route::get('/hapus/{id}',[PembayaranController::class,'hapusSpp']);//CRUD Spp
 });
+
+Route::get('transaksi',[PembayaranController::class,'transaksi']);
+Route::post('transaksi',[PembayaranController::class,'cekTransaksi']);
