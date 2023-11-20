@@ -72,11 +72,10 @@
                                 </a>
                                 <a href="{{url('kelas/hapus/'.$item->id_kelas)}}" class="btn btn-danger btn-circle btn-sm">
                                     <i class="bi bi-trash-fill"></i>
+                                </a>
                             </td>
                         </tr>
                         @endforeach
-
-                        {{-- modal edit --}}
 
                     </tbody>
                 </table>

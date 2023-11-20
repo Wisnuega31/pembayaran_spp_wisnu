@@ -143,4 +143,9 @@ class PembayaranController extends Controller
         ]);
         return back()->with('pesan','Transaksi berhasil ditambahkan');
     }
+    public function riwayat(){
+        $data = new Pembayaran();
+        $data = $data->orderBy('id_pembayaran','desc')->get();
+        return view('spp.riwayat',['dataPembayaran' => $data]);
+    }
 }

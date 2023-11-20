@@ -5,6 +5,13 @@
         <div class="card-body">
             <form action="{{ url('transaksi') }}" method="post">
                 @csrf
+                @if (session('pesan'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{session('pesan')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <div class="mb-3 row">
                     <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
                     <div class="col-sm-10">
@@ -34,11 +41,11 @@
                 <div class="mb-3 row">
                     <label for="id_spp" class="col-sm-2 col-form-label">Tahun/Nominal Spp</label>
                     <div class="col-sm-10">
-                    <select class="form-select my-2" name="id_spp">
-                        @foreach ($dataSpp as $item)
-                            <option value="{{ $item->id_spp }}">{{ $item->tahun }}/{{ $item->nominal }}</option>
-                        @endforeach
-                    </select>
+                        <select class="form-select my-2" name="id_spp">
+                            @foreach ($dataSpp as $item)
+                                <option value="{{ $item->id_spp }}">{{ $item->tahun }}/{{ $item->nominal }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="mb-3 row">

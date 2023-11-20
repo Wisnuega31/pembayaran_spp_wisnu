@@ -54,3 +54,5 @@ Route::prefix('spp')->group(function () {
 
 Route::get('transaksi',[PembayaranController::class,'transaksi']);
 Route::post('transaksi',[PembayaranController::class,'cekTransaksi']);
+
+Route::get('riwayat',[PembayaranController::class,'riwayat']);

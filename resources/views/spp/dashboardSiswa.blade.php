@@ -1,14 +1,9 @@
 @extends('layout')
 @section('content')
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
 
     <!-- Content Row -->
-    <div class="row">
-        <h1>Dashboard siswa</h1>
+    <div class="row text-center d-flex align-content-center justify-content-center" style="height: 70vh">
+        <h2>Selamat datang di aplikasi Pembayaran Spp</h2>
+        <a href="{{url('')}}" class="btn btn-primary" style="width: 30%">Liat Riwayat Pembayaran</a>
     </div>
 @endsection
