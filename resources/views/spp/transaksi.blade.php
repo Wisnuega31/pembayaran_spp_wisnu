@@ -22,9 +22,9 @@
                     <label for="bulan_dibayar" class="col-sm-2 col-form-label">Bulan Bayar</label>
                     <div class="col-sm-10">
                         <select class="form-select my-2" name="bulan_dibayar">
-                            @for ($i = 1; $i <= 12; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
+                            @foreach ($bulan as $item)
+                            <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

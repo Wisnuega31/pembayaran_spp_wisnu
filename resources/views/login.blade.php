@@ -70,6 +70,10 @@
                                             <input type="number" class="form-control form-control-user" name="nisn"
                                                 placeholder="Masukan NISN...">
                                         </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control form-control-user" name="nis"
+                                                placeholder="Masukan NIS...">
+                                        </div>
                                         <button type="submit"
                                             class="btn btn-primary btn-user btn-block my-4">Login</button>
                                     </form>

@@ -22,7 +22,7 @@ class LoginController extends Controller
     }
     public function cekSiswa(Request $request){
         $data = new Siswa();
-        $siswa = $data->where("nisn",$request->nisn);
+        $siswa = $data->where("nisn",$request->nisn)->where('nis',$request->nis);
         if($siswa->exists()){
             session(['dataSiswa'=>$siswa->first()]);
             return redirect('/');

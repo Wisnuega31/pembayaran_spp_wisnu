@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,46 +43,89 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}"><span>Dashboard</span></a>
-            </li>
+            @if (session('dataSiswa'))
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Data</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('siswa')}}">Siswa</a>
-                        <a class="collapse-item" href="{{url('petugas')}}">Petugas</a>
-                        <a class="collapse-item" href="{{url('kelas')}}">Kelas</a>
-                        <a class="collapse-item" href="{{url('spp')}}">Spp</a>
-                    </div>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Interface
                 </div>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('transaksi')}}"><span>Transaksi pembayaran</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('riwayat') }}"><span>History Pembayaran</span></a>
+                </li>
+            @else
+                @if (session('dataPetugas')->level == 'petugas')
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('riwayat')}}"><span>History Pembayaran</span></a>
-            </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('laporan')}}"><span>Laporan</span></a>
-            </li>
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Interface
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('transaksi') }}"><span>Transaksi pembayaran</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('riwayat') }}"><span>History Pembayaran</span></a>
+                    </li>
+                @else
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Interface
+                    </div>
+
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="true" aria-controls="collapseTwo">
+                            <span>Data</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="{{ url('siswa') }}">Siswa</a>
+                                <a class="collapse-item" href="{{ url('petugas') }}">Petugas</a>
+                                <a class="collapse-item" href="{{ url('kelas') }}">Kelas</a>
+                                <a class="collapse-item" href="{{ url('spp') }}">Spp</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('transaksi') }}"><span>Transaksi pembayaran</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('riwayat') }}"><span>History Pembayaran</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('laporan') }}"><span>Laporan</span></a>
+                    </li>
+                @endif
+            @endif
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -114,9 +156,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="/assets/img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @if (session('dataSiswa'))
+                                        {{ session('dataSiswa')->nama }}
+                                    @else
+                                        {{ session('dataPetugas')->nama_petugas }}
+                                    @endif
+                                </span>
+                                <img class="img-profile rounded-circle" src="/assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -125,16 +172,9 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{url('logout')}}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ url('logout') }}" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -191,7 +231,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{url('logout')}}">Logout</a>
+                    <a class="btn btn-primary" href="{{ url('logout') }}">Logout</a>
                 </div>
             </div>
         </div>
@@ -202,7 +242,7 @@
     <script src="\assets\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
     <script src="\assets\js\bootstrap.bundle.min.js"></script>
 
-    
+
     <!-- Custom scripts for all pages-->
     <script src="/assets/js/sb-admin-2.min.js"></script>
 

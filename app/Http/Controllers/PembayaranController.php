@@ -128,7 +128,8 @@ class PembayaranController extends Controller
 
     public function transaksi(){
         $data = new Spp();
-        return view('spp.transaksi',['dataSpp' => $data->all()]);
+        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        return view('spp.transaksi', ['dataSpp' => $data->all(),'bulan'=>$bulan]);
     }
     public function cekTransaksi(Request $request){
         $data = new Pembayaran();
@@ -144,8 +145,8 @@ class PembayaranController extends Controller
         return back()->with('pesan','Transaksi berhasil ditambahkan');
     }
     public function riwayat(){
-        $data = new Pembayaran();
-        $data = $data->orderBy('id_pembayaran','desc')->get();
-        return view('spp.riwayat',['dataPembayaran' => $data]);
+        $data = new Siswa();
+        $data = $data->with(['pembayaran','kelas'])->orderBy('nama','asc')->get();
+        return view('spp.riwayat',['dataSiswa' => $data]);
     }
 }

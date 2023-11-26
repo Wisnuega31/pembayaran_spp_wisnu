@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ceklogin
+class cekRolePetugas
 {
     /**
      * Handle an incoming request.
@@ -15,8 +15,8 @@ class ceklogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!session('dataSiswa') && !session('dataPetugas')) {
-            return redirect('login');
+        if (session('dataPetugas')->level !== 'admin') {
+            return back();
         }
         return $next($request);
     }
