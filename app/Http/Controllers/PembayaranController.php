@@ -145,8 +145,13 @@ class PembayaranController extends Controller
         return back()->with('pesan','Transaksi berhasil ditambahkan');
     }
     public function riwayat(){
-        $data = new Siswa();
-        $data = $data->with(['pembayaran','kelas'])->orderBy('nama','asc')->get();
-        return view('spp.riwayat',['dataSiswa' => $data]);
+        $data = new Pembayaran();
+        
+        if (session('dataSiswa')) {
+            $data = $data->with('siswa')->where('nisn', session('dataSiswa')->nisn)->get();
+        }elseif (session('dataPetugas')) {
+            $data =$data->with('siswa')->get();
+        }
+        return view('spp.riwayat',['dataPembayaran' => $data]);
     }
 }

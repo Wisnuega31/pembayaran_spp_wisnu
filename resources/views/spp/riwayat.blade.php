@@ -6,21 +6,20 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nis</th>
+                        <th scope="col">Nisn</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Kelas</th>
                         <th scope="col">Bulan</th>
                         <th scope="col">Jumlah Bayar</th>
-                        <th scope="col">Keterangan</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    @foreach ($dataSiswa as $item)
+                    @foreach ($dataPembayaran as $item)
                     <tr>
-
                         <th scope="row">{{$item->nisn}}</th>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->kelas->nama_kelas}}</td>
+                        <td>{{$item->siswa->nama}}</td>
+                        <td>{{$item->siswa->kelas->nama_kelas}}</td>
+                        <td>{{$item->bulan_dibayar}}</td>
                         <td>{{$item->jumlah_bayar}}</td>
                     </tr>
                     @endforeach

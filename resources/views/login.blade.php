@@ -75,7 +75,7 @@
                                                 placeholder="Masukan NIS...">
                                         </div>
                                         <button type="submit"
-                                            class="btn btn-primary btn-user btn-block my-4">Login</button>
+                                            class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
 
                                 </div>

@@ -34,10 +34,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="bi bi-wallet"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="/assets/img/logo bk.png" alt="" srcset="" width="70px">
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SMK Bina Kerja</div>
             </a>
 
             <!-- Divider -->
@@ -45,7 +45,7 @@
 
             @if (session('dataSiswa'))
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
                 </li>
 
@@ -63,7 +63,7 @@
             @else
                 @if (session('dataPetugas')->level == 'petugas')
                     <!-- Nav Item - Dashboard -->
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
                     </li>
 
@@ -84,7 +84,7 @@
                     </li>
                 @else
                     <!-- Nav Item - Dashboard -->
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}"><span>Dashboard</span></a>
                     </li>
 
@@ -223,14 +223,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Siap Untuk Keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Tekan "Logout" Jika Kamu ingin keluar</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                     <a class="btn btn-primary" href="{{ url('logout') }}">Logout</a>
                 </div>
             </div>
