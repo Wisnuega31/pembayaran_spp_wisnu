@@ -26,6 +26,7 @@ Route::get('/',[PembayaranController::class,'index'])->middleware([ceklogin::cla
 Route::get('transaksi',[PembayaranController::class,'transaksi'])->middleware(ceklogin::class);
 Route::post('transaksi',[PembayaranController::class,'cekTransaksi']);
 Route::get('riwayat',[PembayaranController::class,'riwayat'])->middleware(ceklogin::class);
+Route::get('laporan',[PembayaranController::class,'laporan'])->middleware(ceklogin::class);
 
 Route::prefix('siswa')->group(function () {
     Route::get('/',[PembayaranController::class,'siswa'])->middleware([ceklogin::class,cekRolePetugas::class]);//CRUD siswa

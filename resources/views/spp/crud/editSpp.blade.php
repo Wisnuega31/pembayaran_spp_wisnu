@@ -1,11 +1,12 @@
 @extends('../../Layout')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Edit Data Kelas</h1>
+        <h1 class="h3 mb-0 text-gray-800">Edit Data Spp</h1>
     </div>
     <form action="" method="post">
         @csrf
         <div class="modal-body">
+            <label for="tahun" class="form-label">Tahun</label>
             <select class="form-select my-2" name="tahun">
                 <option value="2020" @if ($dataSpp->tahun == '2020')
                     selected

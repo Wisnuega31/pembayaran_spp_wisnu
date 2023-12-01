@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Kelas;
 use App\Models\Pembayaran;
 use App\Models\Petugas;
@@ -83,16 +84,28 @@ class PembayaranController extends Controller
     }
     public function tambahKelas(Request $request){
         $data = new Kelas();
-        $data->create($request->all());
+        $data->create([
+            'nama_kelas'=>$request->nama_kelas.'-'.$request->jurusan,
+            'kompetensi_keahlian'=>$request->kompetensi_keahlian
+        ]);
         return back()->with("pesan","data berhasil di tambahkan");
     }
     public function editkls($id){
         $data = new Kelas();
-        return view("spp.crud.editKelas",["dataKelas"=>$data->where('id_kelas',$id)->first()]);
+        $dataKelas = $data->where('id_kelas',$id)->first();
+        $nama_kelas = Str::of($dataKelas->nama_kelas)->explode('-');
+
+        $kelas = $nama_kelas[0];
+        $jurusan = $nama_kelas[1];
+        $kompetensi = $dataKelas->kompetensi_keahlian;
+        return view("spp.crud.editKelas",["nama_kelas"=>$kelas,"jurusan"=>$jurusan,"kompetensi_keahlian"=>$kompetensi]);
     }
     public function editKelas(Request $request,$id){
         $data = new Kelas();
-        $data->find($id)->update($request->all());
+        $data->find($id)->update([
+            'nama_kelas'=>$request->nama_kelas.'-'.$request->jurusan,
+            'kompetensi_keahlian'=>$request->kompetensi_keahlian
+        ]);
         return redirect('kelas')->with('pesan','data berhasil di ubah');
     }
     public function hapusKelas($id){
@@ -153,5 +166,8 @@ class PembayaranController extends Controller
             $data =$data->with('siswa')->get();
         }
         return view('spp.riwayat',['dataPembayaran' => $data]);
+    }
+    public function laporan(){
+        return view('spp.laporan');
     }
 }
